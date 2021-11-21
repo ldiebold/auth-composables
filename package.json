@@ -1,0 +1,9 @@
+{
+  "name": "auth-composables",
+  "version": "1.0.0-alpha.0",
+  "description": "Abstracts for dealing with authenticating a vue app",
+  "main": "index.js",
+  "repository": "https://github.com/ldiebold/auth-composables",
+  "author": "ldiebold <luke@ldiebold.com>",
+  "license": "MIT"
+}
