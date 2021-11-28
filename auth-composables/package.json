@@ -1,6 +1,6 @@
 {
   "name": "auth-composables",
-  "version": "1.0.0-alpha.11",
+  "version": "1.0.0-alpha.12",
   "description": "Abstracts for dealing with authenticating a vue app",
   "main": "dist/auth-composables.esm.js",
   "typings": "dist/src/main.d.ts",
@@ -42,6 +42,7 @@
   },
   "scripts": {
     "build": "rollup --config rollup.config.js",
+    "lint": "eslint ./src",
     "watch": "rollup --config rollup.config.js --watch"
   }
 }
