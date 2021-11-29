@@ -1,17 +1,18 @@
-import ValidationErrors from '../Types/ValidationErrors'
+import { ValidationErrors } from '../Types/ValidationErrors'
 import { ComputedRef, Ref } from 'vue-demi'
 
-type UseHandlesErrors = () => {
-  validationErrors: ValidationErrors
-  hasValidationErrors: ComputedRef<boolean>;
-  hasErrors: ComputedRef<boolean>;
+export interface UseHandlesErrorsReturn {
+  validationErrors: Ref<ValidationErrors>
+  hasValidationErrors: ComputedRef<boolean>
+  hasErrors: ComputedRef<boolean>
   errors: Ref<{
-      type: string;
-      message: string;
+      type: string
+      message: string
   }[]>;
-  resetStandardErrors: () => void;
-  resetValidationErrors: () => void;
-  reset: () => void;
-  fromResponse: () => void;
+  resetStandardErrors: () => void
+  resetValidationErrors: () => void
+  resetErrors: () => void
+  fromResponse: (...args: any[]) => void
 }
-export default UseHandlesErrors
+
+export type UseHandlesErrors = () => UseHandlesErrorsReturn

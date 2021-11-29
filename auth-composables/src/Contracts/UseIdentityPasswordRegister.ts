@@ -1,14 +1,16 @@
-import ValidationErrors from '../Types/ValidationErrors'
-import RequestErrors from '../Types/RequestErrors'
+import { ValidationErrors } from '../Types/ValidationErrors'
+import { RequestErrors } from '../Types/RequestErrors'
 import { Ref, ComputedRef } from 'vue-demi'
 
-type UseIdentityPasswordRegister = () => {
-  form: Ref<{
-      name: string;
-      email: string;
-      password: string;
-      password_confirmation: string;
-  }>;
+export interface IdentityPasswordRegisterForm {
+    email: string
+    password: string
+    password_confirmation: string
+    [key: string | number]: unknown
+}
+
+export interface UseIdentityPasswordRegisterReturn {
+  form: Ref<IdentityPasswordRegisterForm>;
   register: () => Promise<void>;
   loading: Ref<boolean>;
   validationErrors: Ref<ValidationErrors>;
@@ -17,7 +19,7 @@ type UseIdentityPasswordRegister = () => {
   errors: Ref<RequestErrors>;
   resetStandardErrors: () => void;
   resetValidationErrors: () => void;
-  reset: () => void;
+  resetErrors: () => void;
 }
 
-export default UseIdentityPasswordRegister
+export type UseIdentityPasswordRegister = () => UseIdentityPasswordRegisterReturn

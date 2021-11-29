@@ -1,3 +1,1 @@
-type UserOnCheckedFunction = (user: Record<string|number, unknown> | null) => void;
-
-export default UserOnCheckedFunction
+export type UserOnCheckedFunction = (user: Record<string|number, unknown> | null) => void;

@@ -1,6 +1,6 @@
 import { Ref, ComputedRef } from 'vue-demi'
 
-type UseIdentityPasswordLogout = () => {
+export interface UseIdentityPasswordLogoutReturn {
   logout: () => Promise<void>;
   loading: Ref<boolean>;
   hasErrors: ComputedRef<boolean>;
@@ -9,7 +9,7 @@ type UseIdentityPasswordLogout = () => {
       message: string;
   }[]>;
   resetStandardErrors: () => void;
-  reset: () => void;
+  resetErrors: () => void;
 }
 
-export default UseIdentityPasswordLogout
+export type UseIdentityPasswordLogout = () => UseIdentityPasswordLogoutReturn

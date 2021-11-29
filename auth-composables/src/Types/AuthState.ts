@@ -1,13 +1,7 @@
 import { Ref, ComputedRef } from 'vue-demi'
 
-interface AuthState {
+export interface AuthState {
   authIsReady: Ref<boolean>
   isAuthenticated: ComputedRef<boolean>
-  user: Record<string | number, unknown>
-}
-
-export default AuthState
-
-export {
-  AuthState
+  user: Ref<Record<string | number, unknown> | null>
 }

@@ -5,7 +5,11 @@ module.exports = {
     '@typescript-eslint'
   ],
   extends: [
-    'eslint:recommended',
+    'standard',
     'plugin:@typescript-eslint/recommended'
-  ]
+  ],
+  rules: {
+    semi: ['error', 'never'],
+    '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }]
+  }
 }

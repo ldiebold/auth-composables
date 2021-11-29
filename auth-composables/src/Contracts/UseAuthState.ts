@@ -1,4 +1,3 @@
-import AuthState from '../Types/AuthState'
+import { AuthState } from '../Types/AuthState'
 
-type UseAuthState = () => AuthState
-export default UseAuthState
+export type UseAuthState = () => AuthState

@@ -2,14 +2,10 @@ import { RouteLocationRaw, Router } from 'vue-router'
 import { MaybeRef } from '@vueuse/core'
 import { Ref } from 'vue-demi'
 
-type UserOnCheckedFunction = (user: unknown | null) => void;
-type RedirectTriggers = 'authenticated' | 'unauthenticated' | 'error';
+export type UserOnCheckedFunction = (user: unknown | null) => void;
+export type RedirectTriggers = 'authenticated' | 'unauthenticated' | 'error';
 
-type UseAuthRedirector = (
-  redirectOn: RedirectTriggers,
-  redirectTo: MaybeRef<RouteLocationRaw>,
-  router?: Router
-) => {
+export interface UseAuthRedirectorReturn {
   execOnAuthStateChange: () => void;
   execOnAuthStateEnsured: () => void;
   exec: () => void;
@@ -18,4 +14,8 @@ type UseAuthRedirector = (
   onChecked: Ref<UserOnCheckedFunction | null>;
 }
 
-export default UseAuthRedirector
+export type UseAuthRedirector = (
+  redirectOn: RedirectTriggers,
+  redirectTo?: MaybeRef<RouteLocationRaw>,
+  router?: Router
+) => UseAuthRedirectorReturn

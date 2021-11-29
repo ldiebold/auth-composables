@@ -1,9 +1,3 @@
-type ValidationError = Record<string | number, string>
+export type ValidationError = Record<string | number, string>
 
-type ValidationErrors = Record<string | number, ValidationError[]>
-
-export default ValidationErrors
-
-export {
-  ValidationError
-}
+export type ValidationErrors = Record<string | number, ValidationError[]>

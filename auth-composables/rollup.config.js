@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const production = !process.env.ROLLUP_WATCH;
 
 import { nodeResolve } from '@rollup/plugin-node-resolve'
@@ -7,31 +8,24 @@ export default {
   input: './src/main.ts',
   external: [
     'axios',
-    'firebase',
-    'firebase/auth',
     'vue-demi',
     'vue',
     'vue-router',
-    'firebase/app',
-    'firebase/firestore',
     '@vueuse/core'
   ],
 
   output: [
     {
-      file: './dist/sanctum-composables.esm.js',
+      file: './dist/auth-composables.esm.js',
       format: 'esm'
     }
   ],
   plugins: [
     nodeResolve({
-      resolveOnly: [/^(?!firebase).*/],
+      resolveOnly: [/^(?!vue).*/],
       modulesOnly: true,
       dedupe: [
-        'firebase',
-        'firebase/auth',
-        'firebase/app',
-        'firebase/firestore'
+        'vue'
       ]
     }),
     typescript({

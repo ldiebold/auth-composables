@@ -3,10 +3,4 @@ interface RequestError {
   message: string
 }
 
-type RequestErrors = RequestError[]
-
-export default RequestErrors
-
-export {
-  RequestError
-}
+export type RequestErrors = RequestError[]

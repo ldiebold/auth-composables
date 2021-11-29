@@ -1,12 +1,15 @@
-import ValidationErrors from '../Types/ValidationErrors'
-import RequestErrors from '../Types/RequestErrors'
+import { ValidationErrors } from '../Types/ValidationErrors'
+import { RequestErrors } from '../Types/RequestErrors'
 import { Ref, ComputedRef } from 'vue-demi'
 
-type UseIdentityPasswordLogin = () => {
-  form: Ref<{
+export interface IdentityPasswordLoginForm {
     email: string
     password: string
-  }>;
+    [key: string | number]: unknown
+}
+
+export interface UseIdentityPasswordLoginReturn {
+  form: Ref<IdentityPasswordLoginForm>;
   login: () => Promise<void>
   loading: Ref<boolean>
   validationErrors: Ref<ValidationErrors>;
@@ -15,7 +18,7 @@ type UseIdentityPasswordLogin = () => {
   errors: Ref<RequestErrors>;
   resetStandardErrors: () => void
   resetValidationErrors: () => void
-  reset: () => void
+  resetErrors: () => void
 }
 
-export default UseIdentityPasswordLogin
+export type UseIdentityPasswordLogin = () => UseIdentityPasswordLoginReturn
